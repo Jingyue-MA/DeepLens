@@ -415,7 +415,7 @@ class DOE(DeepObj):
                 1.4555,
                 1.4553,
             ]
-
+            
             # Find the nearest two wvlns
             delta_wvln = [abs(wv - wvln) for wv in ref_wvlns]
             idx1 = delta_wvln.index(min(delta_wvln))
@@ -427,6 +427,44 @@ class DOE(DeepObj):
                 ref_wvlns[idx2] - ref_wvlns[idx1]
             ) * (wvln - ref_wvlns[idx1])
 
+        elif self.glass == "SK1300":
+            assert wvln >= 0.4 and wvln <= 0.7, (
+                "Wavelength should be in the range of [0.4, 0.7] um."
+            )
+            ref_wvlns = [
+                0.40,
+                0.41,
+                0.42,
+                0.43,
+                0.44,
+                0.45,
+                0.46,
+                0.47,
+                0.48,
+                0.49,
+                0.50,
+                0.51,
+                0.52,
+                0.53,
+                0.54,
+                0.55,
+                0.56,
+                0.57,
+                0.58,
+                0.59,
+                0.60,
+                0.61,
+                0.62,
+                0.63,
+                0.64,
+                0.65,
+                0.66,
+                0.67,
+                0.68,
+                0.69,
+                0.70,
+            ]
+            
         else:
             raise Exception("Unknown DOE material.")
 
